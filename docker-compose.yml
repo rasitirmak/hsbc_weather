@@ -1,0 +1,13 @@
+version: '3'
+services:
+  ui:
+    build: ./weather-ui 
+    ports:
+      - 80:3000
+    depends_on:
+      - api
+
+  api:
+    build: ./weather-api 
+    ports:
+      - 8080:8080
