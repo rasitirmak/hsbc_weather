@@ -11,7 +11,7 @@ pipeline {
     // Building Docker images
         stage('Building image weather-api') {
             steps {
-                sh 'cd $workspace/weather-api'
+                sh 'cd $workspace/weatherapppipeline2/weather-api'
                 sh 'ls -al'
                 sh './mvnw clean package'
                 sh 'docker build -t "weather-api" .'
