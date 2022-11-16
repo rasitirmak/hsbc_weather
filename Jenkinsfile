@@ -9,7 +9,7 @@ pipeline {
         }
     
     // Building Docker images
-        stage('Building image') {
+        stage('Building image weather-api') {
             steps {
                 sh 'mvn clean package -f ./weather-api'
                 sh 'docker build -t "weather-api" ./weather-api'
@@ -18,7 +18,7 @@ pipeline {
                 sh 'docker push http://44.194.255.37:8081/repository/weather-docker-private-repo/weather-api:1.0'
             }
         }
-        stage('Building image') {
+        stage('Building image weather-ui') {
             steps {
                 sh 'docker build -t "weather-ui" ./weather-ui'
                 sh 'docker login -u admin -p 12345 http://44.194.255.37:8081'              
