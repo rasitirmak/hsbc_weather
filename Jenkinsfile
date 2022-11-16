@@ -12,13 +12,13 @@ pipeline {
         stage('Building image weather-api') {
             steps {
                 sh 'pwd'
-                dir ("weather-api"){sh 'pwd'}
-                sh 'ls -al'
-                // sh './mvnw clean package'
-                // sh 'docker build -t "weather-api" .'
-                // sh 'docker login -u admin -p 12345 http://44.194.255.37:8081'
-                // // sh 'docker login --username=MYUSERNAME --password=MYPASSWORD'
-                // sh 'docker push http://44.194.255.37:8081/repository/weather-docker-private-repo/weather-api:1.0'
+                dir ("weather-api"){
+                sh './mvnw clean package'
+                sh 'docker build -t "weather-api" .'
+                sh 'docker login -u admin -p 12345 http://44.194.255.37:8081'
+                // sh 'docker login --username=MYUSERNAME --password=MYPASSWORD'
+                sh 'docker push http://44.194.255.37:8081/repository/weather-docker-private-repo/weather-api:1.0'
+                }
             }
         }
 
