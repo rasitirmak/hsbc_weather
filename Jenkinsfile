@@ -12,7 +12,7 @@ pipeline {
         stage('Building image weather-api') {
             steps {
                 sh 'cd weather-api'
-                sh './mvnw clean package'
+                sh 'mvnw clean package'
                 sh 'docker build -t "weather-api" .'
                 sh 'docker login -u admin -p 12345 http://44.194.255.37:8081'
                 // sh 'docker login --username=MYUSERNAME --password=MYPASSWORD'
