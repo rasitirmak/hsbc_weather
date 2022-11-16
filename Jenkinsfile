@@ -11,8 +11,6 @@ pipeline {
     // Building Docker images
         stage('Building image weather-api') {
             steps {
-                sh 'cd /var/lib/jenkins/workspace/weatherapppipeline2/weather-api'
-                sh 'ls -al'
                 sh 'mvnw clean package'
                 sh 'docker build -t "weather-api" .'
                 sh 'docker login -u admin -p 12345 http://44.194.255.37:8081'
