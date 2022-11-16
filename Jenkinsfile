@@ -12,7 +12,7 @@ pipeline {
         stage('Building image weather-api') {
             steps {
                 sh 'pwd'
-                sh 'cd weather-api'
+                dir ("weather-api"){sh 'pwd'}
                 sh 'ls -al'
                 // sh './mvnw clean package'
                 // sh 'docker build -t "weather-api" .'
